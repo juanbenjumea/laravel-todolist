@@ -1,19 +1,27 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>TODO List</title>
-        @livewireStyles
-        
-    </head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <body>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        
+        <!-- Styles -->
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+        @livewireStyles
+    </head>
+    <body class="bg-orange-500">
+        <h1 class="text-4xl text-center font-bolder text-white">Welcome to Laravel with Tailwindcss!!</h1>
 
         @yield('contenido')
 
         @livewireScripts
     </body>
-
-</html
+</html>
