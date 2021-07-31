@@ -12,6 +12,11 @@ class Formulario extends Component
 
     protected $listeners = ['tareaRestaurada' => 'guardarTarea', 'limpiarMensajes' => 'limpiarMensajes'];
 
+    protected $messages = [
+        'nombre.required' => 'El nombre no puede estar vacío.',
+        'nombre.max' => 'El nombre debe contener máximo 250 caracteres.',
+    ];
+
     public function rules()
     {
         return [
@@ -39,12 +44,12 @@ class Formulario extends Component
         $tarea->save();
         
         if($tarea) {
-            session()->flash('message', 'Tarea guardada correctamente.');
+            session()->flash('message', 'Tarea agregada correctamente.');
             $this->emit('tareaAgregada');
             $this->limpiarFormulario();
         }
         else {
-            session()->flash('error', 'La tarea no pudo ser guardada');
+            session()->flash('error', 'La tarea no pudo ser agregada');
         }
     }
     
